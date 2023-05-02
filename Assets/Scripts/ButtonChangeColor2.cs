@@ -4,9 +4,10 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class ButtonChangeColor : MonoBehaviour
+public class ButtonChangeColor2 : MonoBehaviour
 {
-    public UnityEvent OnPress = null;
+    public UnityEvent OnLoopEnter = null;
+    public UnityEvent OnLoopExit = null;
     public Material selectMaterial = null;
 
     public bool playPausePressed;
@@ -17,6 +18,13 @@ public class ButtonChangeColor : MonoBehaviour
 
     public GameObject imageactived;
     public AudioSource audioSource;
+
+    public bool allowToStartLoop = true;
+    public bool loopIsActive = false;
+    public bool allowToEndLoop = false;
+
+    public ButtonChangeColor2 ChangeColorScript;
+    public ButtonChangeColor2 ChangeColorScript2;
 
 
     private void Awake()
@@ -37,14 +45,42 @@ public class ButtonChangeColor : MonoBehaviour
 
     private void SetSelectMaterial(XRBaseInteractor interactor)
     {
-        meshRenderer.material = selectMaterial;
+        if(allowToStartLoop && ChangeColorScript.loopIsActive == false && ChangeColorScript2.loopIsActive == false)
+        {
+            meshRenderer.material = selectMaterial;
 
-        OnPress.Invoke();
+            OnLoopEnter.Invoke();
+            loopIsActive = true;
+        }
+        if(allowToEndLoop)
+        {
+            meshRenderer.material = originalMaterial;
+
+            OnLoopExit.Invoke();
+            loopIsActive = false;
+        }
+        
+
     }
 
     private void SetOriginalMaterial(XRBaseInteractor interactor)
     {
-        meshRenderer.material = originalMaterial;
+        if(loopIsActive)
+        {
+            allowToStartLoop = false;
+            allowToEndLoop = true;
+        }
+        if(!loopIsActive)
+        {
+            allowToStartLoop = true;
+            allowToEndLoop = false;
+        }
         
     }
+
+    /*public void SetAudioPlay()
+    {
+        imageactived.SetActive(false);
+        audioSource.Play();
+    }*/
 }

@@ -40,6 +40,7 @@ public class AudioSelector : MonoBehaviour
     {
         selectedClip = audioList.audioClips[dropdown.GetComponent<TMP_Dropdown>().value];
         audioSource.clip = selectedClip;
+        audioSource.timeSamples = 0;
         //audioSource.Play();
     }
 }
