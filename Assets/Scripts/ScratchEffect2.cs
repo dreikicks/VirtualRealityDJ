@@ -7,6 +7,7 @@ using System;
 public class ScratchEffect2 : MonoBehaviour
 {
     public float scratchIntensity = 1.0f;
+    public float scratchDefIntensity = 0.5f;
     public AudioSource audioSource;
 
     public float previousRotation;
@@ -14,6 +15,8 @@ public class ScratchEffect2 : MonoBehaviour
     public float rotationDelta;
 
     public float resultPitch;
+
+    public bool scratchDefOn = false;
 
     public PitchManager2 pitchManager2;
 
@@ -30,32 +33,40 @@ public class ScratchEffect2 : MonoBehaviour
         rotationDelta = currentRotation - previousRotation;
         previousRotation = currentRotation;
 
-        // Aplicar efecto de scratch en funcion de la rotacion del cilindro
-        if (audioSource.isPlaying)
+        if (!scratchDefOn) 
         {
-            float pitchShift = Mathf.Clamp(rotationDelta, -1f, 1f) * scratchIntensity;
-            resultPitch = Mathf.Clamp(audioSource.pitch + pitchShift, 0.5f, 2.0f);
-            audioSource.pitch = resultPitch;
+            if (audioSource.isPlaying)
+            {
+                float pitchShift = Mathf.Clamp(rotationDelta, -1f, 1f) * scratchIntensity;
+                resultPitch = Mathf.Clamp(audioSource.pitch + pitchShift, 0.5f, 2.0f);
+                audioSource.pitch = resultPitch;
+            }
+        
+            if(rotationDelta != 0)
+            {
+                scratchActivated = true;
+            }else
+            {
+                scratchActivated = false;
+                audioSource.pitch = pitchManager2.range;
+            }
+        } else 
+        {
+            int sampleShift = Mathf.RoundToInt(rotationDelta * scratchDefIntensity * audioSource.clip.frequency);
+            int newSamplePosition = Mathf.Clamp(audioSource.timeSamples + sampleShift, 0, audioSource.clip.samples);
+            audioSource.timeSamples = newSamplePosition;
         }
         
-        if(rotationDelta != 0)
-        {
-            scratchActivated = true;
-        }else
-        {
-            scratchActivated = false;
-            audioSource.pitch = pitchManager2.range;
-        }
     }
 
-    public void OnScratchSelect()
+    public void OnScratchDefOn()
     {
-        //scratchActivated = true;
+        scratchDefOn = true;
     }
 
-    public void OnScratchDesSelect()
+    public void OnScratchDefOff()
     {
-        //scratchActivated = false;
+        scratchDefOn = false;
     }
 }
 

@@ -4,9 +4,10 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class ButtonChangeColor : MonoBehaviour
+public class ButtonChangeColor3 : MonoBehaviour
 {
-    public UnityEvent OnPress = null;
+    public UnityEvent OnScratchEnter = null;
+    public UnityEvent OnScratchExit = null;
     public Material selectMaterial = null;
 
     public bool playPausePressed;
@@ -14,6 +15,10 @@ public class ButtonChangeColor : MonoBehaviour
     private MeshRenderer meshRenderer = null;
     private XRBaseInteractable interactable = null;
     private Material originalMaterial = null;
+
+    public bool allowToStartScratch = true;
+    public bool scratchIsActive = false;
+    public bool allowToEndScratch = false;
 
 
     private void Awake()
@@ -34,14 +39,37 @@ public class ButtonChangeColor : MonoBehaviour
 
     private void SetSelectMaterial(XRBaseInteractor interactor)
     {
-        meshRenderer.material = selectMaterial;
+        if(allowToStartScratch)
+        {
+            meshRenderer.material = selectMaterial;
 
-        OnPress.Invoke();
+            OnScratchEnter.Invoke();
+            scratchIsActive = true;
+        }
+        if(allowToEndScratch)
+        {
+            meshRenderer.material = originalMaterial;
+
+            OnScratchExit.Invoke();
+            scratchIsActive = false;
+        }
+        
+
     }
 
     private void SetOriginalMaterial(XRBaseInteractor interactor)
     {
-        meshRenderer.material = originalMaterial;
+        if(scratchIsActive)
+        {
+            allowToStartScratch = false;
+            allowToEndScratch = true;
+        }
+        if(!scratchIsActive)
+        {
+            allowToStartScratch = true;
+            allowToEndScratch = false;
+        }
         
     }
+
 }

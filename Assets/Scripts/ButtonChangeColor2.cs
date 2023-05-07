@@ -16,15 +16,12 @@ public class ButtonChangeColor2 : MonoBehaviour
     private XRBaseInteractable interactable = null;
     private Material originalMaterial = null;
 
-    public GameObject imageactived;
-    public AudioSource audioSource;
-
     public bool allowToStartLoop = true;
     public bool loopIsActive = false;
     public bool allowToEndLoop = false;
 
-    public ButtonChangeColor2 ChangeColorScript;
-    public ButtonChangeColor2 ChangeColorScript2;
+    //public ButtonChangeColor2 ChangeColorScript;
+    //public ButtonChangeColor2 ChangeColorScript2;
 
 
     private void Awake()
@@ -45,7 +42,7 @@ public class ButtonChangeColor2 : MonoBehaviour
 
     private void SetSelectMaterial(XRBaseInteractor interactor)
     {
-        if(allowToStartLoop && ChangeColorScript.loopIsActive == false && ChangeColorScript2.loopIsActive == false)
+        if(allowToStartLoop)
         {
             meshRenderer.material = selectMaterial;
 
@@ -77,10 +74,4 @@ public class ButtonChangeColor2 : MonoBehaviour
         }
         
     }
-
-    /*public void SetAudioPlay()
-    {
-        imageactived.SetActive(false);
-        audioSource.Play();
-    }*/
 }
