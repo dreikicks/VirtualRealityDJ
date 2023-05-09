@@ -26,7 +26,7 @@ public class VolumeManager2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        slider2.transform.localPosition = new Vector3(slider2.transform.localPosition.x, slider2.transform.localPosition.y, 0.32f);
     }
 
     // Update is called once per frame

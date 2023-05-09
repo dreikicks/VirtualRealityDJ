@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using UnityEngine.Events;
 using TMPro;
 
 public class AudioSelector : MonoBehaviour
@@ -11,6 +12,8 @@ public class AudioSelector : MonoBehaviour
     public AudioList audioList;
     private AudioClip selectedClip;
     public TMP_Dropdown dropdown;
+
+    public UnityEvent OnAudioChange = null;
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +44,7 @@ public class AudioSelector : MonoBehaviour
         selectedClip = audioList.audioClips[dropdown.GetComponent<TMP_Dropdown>().value];
         audioSource.clip = selectedClip;
         audioSource.timeSamples = 0;
+        OnAudioChange.Invoke();
         //audioSource.Play();
     }
 }
