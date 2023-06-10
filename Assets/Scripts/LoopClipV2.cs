@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class LoopClip : MonoBehaviour
+public class LoopClipV2 : MonoBehaviour
 {
     public AudioSource audioSource;
     public float loopTime;
@@ -13,6 +13,10 @@ public class LoopClip : MonoBehaviour
     private int loopEndSamples;
 
     public TextMeshProUGUI textMeshPro;
+
+    public float tiempoInicial = 0f;
+    public float tiempoTranscurrido = 0f;
+    public bool contadorActivo = false;
 
     private void Awake()
     {
@@ -25,9 +29,14 @@ public class LoopClip : MonoBehaviour
     void Update()
     {
         textMeshPro.text = loopTime.ToString();
+
+        if (contadorActivo)
+        {
+            tiempoTranscurrido += Time.deltaTime;
+        }
     }
 
-    public IEnumerator LoopAudio()
+    private IEnumerator LoopAudio()
     {
         loopEndSamples = loopStartSamples + Mathf.RoundToInt(loopTime * audioSource.clip.frequency);
 
@@ -42,11 +51,25 @@ public class LoopClip : MonoBehaviour
         }
     }
 
-    public void StartLoop()
+    public void IniciarContador()
+    {
+        contadorActivo = true;
+        loopStartSamples = audioSource.timeSamples;
+    }
+
+    public void DetenerContador()
+    {
+        contadorActivo = false;
+        loopTime = tiempoTranscurrido;
+
+        loopCoroutine = StartCoroutine(LoopAudio());
+    }
+
+    /*public void StartLoop()
     {
         loopStartSamples = audioSource.timeSamples;
         loopCoroutine = StartCoroutine(LoopAudio());
-    }
+    }*/
 
     public void StopLoop()
     {
@@ -54,63 +77,29 @@ public class LoopClip : MonoBehaviour
         {
             StopCoroutine(loopCoroutine);
             loopCoroutine = null;
-            //audioSource.timeSamples = loopStartSamples;
+            tiempoInicial = 0f;
+            tiempoTranscurrido = 0f;
+            loopTime = 0f;
         }
     }
 
     public void MoreTimeLoop()
     {
-        if(loopTime == 8f){
-            loopTime = 8f;
-        }
-        if(loopTime == 6f){
-            loopTime = 8f;
-        }
-        if(loopTime == 4f){
-            loopTime = 6f;
-        }
-        if(loopTime == 2f){
-            loopTime = 4f;
-        }
-        if(loopTime == 1f){
-            loopTime = 2f;
-        }
-        if(loopTime == 0.5f){
-            loopTime = 1f;
-        }
-        if(loopTime == 0.25f){
-            loopTime = 0.5f;
-        }
-        if(loopTime == 0.1f){
-            loopTime = 0.25f;
-        }
+        loopTime = loopTime * 2;
+        StopCoroutine(loopCoroutine);
+        loopCoroutine = null;
+
+        loopStartSamples = audioSource.timeSamples;
+        loopCoroutine = StartCoroutine(LoopAudio());
     }
 
     public void LessTimeLoop()
     {
-        if(loopTime == 0.1f){
-            loopTime = 0.1f;
-        }
-        if(loopTime == 0.25f){
-            loopTime = 0.1f;
-        }
-        if(loopTime == 0.5f){
-            loopTime = 0.25f;
-        }
-        if(loopTime == 1f){
-            loopTime = 0.5f;
-        }
-        if(loopTime == 2f){
-            loopTime = 1f;
-        }
-        if(loopTime == 4f){
-            loopTime = 2f;
-        }
-        if(loopTime == 6f){
-            loopTime = 4f;
-        }
-        if(loopTime == 8f){
-            loopTime = 6f;
-        }
+        loopTime = loopTime / 2;
+        StopCoroutine(loopCoroutine);
+        loopCoroutine = null;
+
+        loopStartSamples = audioSource.timeSamples;
+        loopCoroutine = StartCoroutine(LoopAudio());
     }
 }

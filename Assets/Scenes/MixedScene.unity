@@ -8582,8 +8582,8 @@ MonoBehaviour:
   OnPress:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4475234950274875544}
-        m_TargetAssemblyTypeName: LoopClip, Assembly-CSharp
+      - m_Target: {fileID: 4475234950274875552}
+        m_TargetAssemblyTypeName: LoopClipV2, Assembly-CSharp
         m_MethodName: LessTimeLoop
         m_Mode: 1
         m_Arguments:
@@ -11723,8 +11723,8 @@ MonoBehaviour:
   OnPress:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4475234950274875544}
-        m_TargetAssemblyTypeName: LoopClip, Assembly-CSharp
+      - m_Target: {fileID: 4475234950274875552}
+        m_TargetAssemblyTypeName: LoopClipV2, Assembly-CSharp
         m_MethodName: MoreTimeLoop
         m_Mode: 1
         m_Arguments:
@@ -11780,8 +11780,8 @@ GameObject:
   - component: {fileID: 4475234950274875551}
   - component: {fileID: 4475234950274875550}
   - component: {fileID: 4475234950274875545}
-  - component: {fileID: 4475234950274875544}
-  - component: {fileID: 4475234950274875547}
+  - component: {fileID: 4475234950274875552}
+  - component: {fileID: 4475234950274875553}
   - component: {fileID: 4475234950274875546}
   - component: {fileID: 4475234950274875525}
   m_Layer: 6
@@ -11791,21 +11791,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &4475234950274875544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4475234950274875527}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e4c09b24c598d54e8760a0badaac1cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioSource: {fileID: 2431532397698720904}
-  loopTime: 4
-  textMeshPro: {fileID: 5231360824337337967}
 --- !u!65 &4475234950274875545
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11912,53 +11897,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &4475234950274875547
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4475234950274875527}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 102ca58768dbe90458868975cc59dffa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnLoopEnter:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4475234950274875544}
-        m_TargetAssemblyTypeName: LoopClip, Assembly-CSharp
-        m_MethodName: StartLoop
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnLoopExit:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4475234950274875544}
-        m_TargetAssemblyTypeName: LoopClip, Assembly-CSharp
-        m_MethodName: StopLoop
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  selectMaterial: {fileID: 2100000, guid: 4b47a183c0a13bc498ebe8596046e607, type: 2}
-  playPausePressed: 0
-  allowToStartLoop: 1
-  loopIsActive: 0
-  allowToEndLoop: 0
 --- !u!23 &4475234950274875550
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12009,6 +11947,89 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4475234950274875527}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &4475234950274875552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4475234950274875527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f833f67d89e973747adfb4f8e63847a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 2431532397698720904}
+  loopTime: 1
+  textMeshPro: {fileID: 5231360824337337967}
+  tiempoInicial: 0
+  tiempoTranscurrido: 0
+  contadorActivo: 0
+--- !u!114 &4475234950274875553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4475234950274875527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c92421df0c818046837a82130e66880, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartCounter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4475234950274875552}
+        m_TargetAssemblyTypeName: LoopClipV2, Assembly-CSharp
+        m_MethodName: IniciarContador
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  StopCounterStartLoop:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4475234950274875552}
+        m_TargetAssemblyTypeName: LoopClipV2, Assembly-CSharp
+        m_MethodName: DetenerContador
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  EndLoop:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4475234950274875552}
+        m_TargetAssemblyTypeName: LoopClipV2, Assembly-CSharp
+        m_MethodName: StopLoop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  selectMaterial: {fileID: 2100000, guid: 5a5ebb67e5720c040b57b18acd3bbc3d, type: 2}
+  loopMaterial: {fileID: 2100000, guid: 4b47a183c0a13bc498ebe8596046e607, type: 2}
+  playPausePressed: 0
+  allowToStartCounter: 1
+  allowToEndCounter: 0
+  allowtoEndLoop: 0
+  counterIsActive: 0
+  loopIsActive: 0
 --- !u!114 &4993863579757321440
 MonoBehaviour:
   m_ObjectHideFlags: 0
