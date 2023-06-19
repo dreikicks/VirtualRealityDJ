@@ -1109,7 +1109,7 @@ GameObject:
   - component: {fileID: 1296797852}
   - component: {fileID: 1296797851}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: CanvasLowTable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1625,7 +1625,7 @@ MonoBehaviour:
   requestFaceTrackingPermissionOnStartup: 0
   requestEyeTrackingPermissionOnStartup: 0
   _localDimming: 0
-  _trackingOriginType: 0
+  _trackingOriginType: 1
   usePositionTracking: 1
   useRotationTracking: 1
   useIPDInPositionTracking: 1
@@ -3857,9 +3857,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 216930912792407725}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.019864857, y: 0, z: 0.61}
-  m_LocalScale: {x: 1.0501192, y: 1.0501192, z: 1.0501192}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0.019864857, y: 0, z: 0.523}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 216930914347203459}
   m_Father: {fileID: 0}
@@ -7403,6 +7403,7 @@ MonoBehaviour:
   scratchIntensity: 0.3
   scratchDefIntensity: 0.1
   audioSource: {fileID: 2431532397698720904}
+  masterMix: {fileID: 24100000, guid: 9d8805af52e38b549b78182147846827, type: 2}
   scratchDefOn: 0
   previousRotation: 0
   currentRotation: 0
@@ -7411,7 +7412,7 @@ MonoBehaviour:
   pitchManager1: {fileID: 8837261116782502782}
   scratchActivated: 0
   rotationSpeedThreshold: 1
-  timeStep: 0.3
+  timeStep: 0.2
 --- !u!138 &2084542292808911472
 FixedJoint:
   m_ObjectHideFlags: 0
@@ -14681,8 +14682,8 @@ MonoBehaviour:
   OnPress:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4475234948935941025}
-        m_TargetAssemblyTypeName: LoopClip, Assembly-CSharp
+      - m_Target: {fileID: 4475234948935941039}
+        m_TargetAssemblyTypeName: LoopClipV2, Assembly-CSharp
         m_MethodName: MoreTimeLoop
         m_Mode: 1
         m_Arguments:
@@ -14711,21 +14712,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 10
   m_CollisionDetection: 0
---- !u!114 &4475234948935941025
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4475234948935941033}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e4c09b24c598d54e8760a0badaac1cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioSource: {fileID: 2833716192669618564}
-  loopTime: 4
-  textMeshPro: {fileID: 2914592107434683263}
 --- !u!33 &4475234948935941026
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -14762,7 +14748,7 @@ GameObject:
   - component: {fileID: 4475234948935941037}
   - component: {fileID: 4475234948935941036}
   - component: {fileID: 4475234948935941039}
-  - component: {fileID: 4475234948935941025}
+  - component: {fileID: 4475234948935941040}
   - component: {fileID: 4475234948935941038}
   - component: {fileID: 4475234948935941024}
   m_Layer: 6
@@ -14929,15 +14915,33 @@ MonoBehaviour:
   m_GameObject: {fileID: 4475234948935941033}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 102ca58768dbe90458868975cc59dffa, type: 3}
+  m_Script: {fileID: 11500000, guid: f833f67d89e973747adfb4f8e63847a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnLoopEnter:
+  audioSource: {fileID: 2833716192669618564}
+  loopTime: 0
+  textMeshPro: {fileID: 2914592107434683263}
+  tiempoInicial: 0
+  tiempoTranscurrido: 0
+  contadorActivo: 0
+--- !u!114 &4475234948935941040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4475234948935941033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c92421df0c818046837a82130e66880, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartCounter:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4475234948935941025}
-        m_TargetAssemblyTypeName: LoopClip, Assembly-CSharp
-        m_MethodName: StartLoop
+      - m_Target: {fileID: 4475234948935941039}
+        m_TargetAssemblyTypeName: LoopClipV2, Assembly-CSharp
+        m_MethodName: IniciarContador
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14947,11 +14951,26 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  OnLoopExit:
+  StopCounterStartLoop:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4475234948935941025}
-        m_TargetAssemblyTypeName: LoopClip, Assembly-CSharp
+      - m_Target: {fileID: 4475234948935941039}
+        m_TargetAssemblyTypeName: LoopClipV2, Assembly-CSharp
+        m_MethodName: DetenerContador
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  EndLoop:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4475234948935941039}
+        m_TargetAssemblyTypeName: LoopClipV2, Assembly-CSharp
         m_MethodName: StopLoop
         m_Mode: 1
         m_Arguments:
@@ -14962,11 +14981,14 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  selectMaterial: {fileID: 2100000, guid: 4b47a183c0a13bc498ebe8596046e607, type: 2}
+  selectMaterial: {fileID: 2100000, guid: 5a5ebb67e5720c040b57b18acd3bbc3d, type: 2}
+  loopMaterial: {fileID: 2100000, guid: 4b47a183c0a13bc498ebe8596046e607, type: 2}
   playPausePressed: 0
-  allowToStartLoop: 1
+  allowToStartCounter: 1
+  allowToEndCounter: 0
+  allowtoEndLoop: 0
+  counterIsActive: 0
   loopIsActive: 0
-  allowToEndLoop: 0
 --- !u!54 &4475234949066194820
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -15984,8 +16006,8 @@ MonoBehaviour:
   OnPress:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4475234948935941025}
-        m_TargetAssemblyTypeName: LoopClip, Assembly-CSharp
+      - m_Target: {fileID: 4475234948935941039}
+        m_TargetAssemblyTypeName: LoopClipV2, Assembly-CSharp
         m_MethodName: LessTimeLoop
         m_Mode: 1
         m_Arguments:
@@ -22129,6 +22151,7 @@ MonoBehaviour:
   scratchIntensity: 0.3
   scratchDefIntensity: 0.2
   audioSource: {fileID: 2833716192669618564}
+  masterMix: {fileID: 24100000, guid: 9d8805af52e38b549b78182147846827, type: 2}
   previousRotation: 0
   currentRotation: 0
   rotationDelta: 0
@@ -22137,7 +22160,7 @@ MonoBehaviour:
   pitchManager2: {fileID: 8837261116782502657}
   scratchActivated: 0
   rotationSpeedThreshold: 1
-  timeStep: 0.3
+  timeStep: 0.2
 --- !u!23 &8693133869385475952
 MeshRenderer:
   m_ObjectHideFlags: 0

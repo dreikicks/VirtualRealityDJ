@@ -89,7 +89,7 @@ public class LoopClipV2 : MonoBehaviour
         StopCoroutine(loopCoroutine);
         loopCoroutine = null;
 
-        loopStartSamples = audioSource.timeSamples;
+        //loopStartSamples = audioSource.timeSamples;
         loopCoroutine = StartCoroutine(LoopAudio());
     }
 
@@ -99,7 +99,7 @@ public class LoopClipV2 : MonoBehaviour
         StopCoroutine(loopCoroutine);
         loopCoroutine = null;
 
-        loopStartSamples = audioSource.timeSamples;
+        //loopStartSamples = audioSource.timeSamples;
         loopCoroutine = StartCoroutine(LoopAudio());
     }
 }

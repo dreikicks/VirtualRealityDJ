@@ -9,6 +9,7 @@ public class ScratchEffect1 : MonoBehaviour
     public float scratchIntensity = 1.0f;
     public float scratchDefIntensity = 0.5f;
     public AudioSource audioSource;
+    public AudioMixer masterMix;
 
     public bool scratchDefOn = false;
 
@@ -48,6 +49,7 @@ public class ScratchEffect1 : MonoBehaviour
                 float pitchShift = Mathf.Clamp(rotationDelta, -1f, 1f) * scratchIntensity;
                 resultPitch = Mathf.Clamp(audioSource.pitch + pitchShift, 0.5f, 2.0f);
                 audioSource.pitch = resultPitch;
+                masterMix.SetFloat ("Pitch1", 1f / resultPitch);
             }
         
             if(rotationDelta != 0)
@@ -57,6 +59,7 @@ public class ScratchEffect1 : MonoBehaviour
             {
                 scratchActivated = false;
                 audioSource.pitch = pitchManager1.range;
+                masterMix.SetFloat ("Pitch1", 1f / pitchManager1.range);
             }
         } else
         {
