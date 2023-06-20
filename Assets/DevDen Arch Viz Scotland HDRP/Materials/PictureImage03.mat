@@ -219,7 +219,7 @@ Material:
     - _EnableWind: 0
     - _EnergyConservingSpecularColor: 1
     - _GlossMapScale: 1
-    - _Glossiness: 0.45
+    - _Glossiness: 0.698
     - _GlossyReflections: 1
     - _HdrpVersion: 2
     - _HeightAmplitude: 0.02
@@ -238,7 +238,7 @@ Material:
     - _IridescenceThickness: 1
     - _LinkDetailsWithBase: 0
     - _MaterialID: 1
-    - _Metallic: 0.295
+    - _Metallic: 0.604
     - _MetallicRemapMax: 0.295
     - _MetallicRemapMin: 0
     - _Mode: 0

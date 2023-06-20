@@ -31,6 +31,8 @@ public class ButtonChangeColor2 : MonoBehaviour
 
         interactable = GetComponent<XRBaseInteractable>();
         interactable.onHoverEntered.AddListener(SetSelectMaterial);
+
+        
         interactable.onHoverExited.AddListener(SetOriginalMaterial);
     }
 
