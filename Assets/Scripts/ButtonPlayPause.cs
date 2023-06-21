@@ -5,7 +5,7 @@ using UnityEngine.Audio;
 using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class ButtonChangeColor : MonoBehaviour
+public class ButtonPlayPause : MonoBehaviour
 {
     public UnityEvent OnPress = null;
     public Material selectMaterial = null;
@@ -16,7 +16,7 @@ public class ButtonChangeColor : MonoBehaviour
     private XRBaseInteractable interactable = null;
     private Material originalMaterial = null;
 
-    //public AudioSource audioSource;
+    public AudioSource audioSource;
 
 
     private void Awake()
@@ -31,12 +31,12 @@ public class ButtonChangeColor : MonoBehaviour
 
     void Update() 
     {
-        // if (audioSource.isPlaying)
-        // {
-        //     meshRenderer.material = selectMaterial;
-        // } else {
-        //     meshRenderer.material = originalMaterial;
-        // }
+        if (audioSource.isPlaying)
+        {
+            meshRenderer.material = selectMaterial;
+        } else {
+            meshRenderer.material = originalMaterial;
+        }
     }
 
     private void OnDestroy()
@@ -47,14 +47,14 @@ public class ButtonChangeColor : MonoBehaviour
 
     private void SetSelectMaterial(XRBaseInteractor interactor)
     {
-        meshRenderer.material = selectMaterial;
+        //meshRenderer.material = selectMaterial;
 
         OnPress.Invoke();
     }
 
     private void SetOriginalMaterial(XRBaseInteractor interactor)
     {
-        meshRenderer.material = originalMaterial;
+        //meshRenderer.material = originalMaterial;
         
     }
 }

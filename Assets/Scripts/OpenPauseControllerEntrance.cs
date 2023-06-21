@@ -4,10 +4,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 
-public class OpenPauseController : MonoBehaviour
+public class OpenPauseControllerEntrance : MonoBehaviour
 {
     public bool isPaused = false;
     public GameObject pauseCanvas;
+    public GameObject mainMenuCanvas;
 
     // Start is called before the first frame update
     void Start()
@@ -34,11 +35,13 @@ public class OpenPauseController : MonoBehaviour
         if(!isPaused)
         {
             pauseCanvas.SetActive(true);
+            mainMenuCanvas.SetActive(false);
             isPaused = true;
             Time.timeScale = 0;
         }else if(isPaused)
         {
             pauseCanvas.SetActive(false);
+            mainMenuCanvas.SetActive(true);
             isPaused = false;
             Time.timeScale = 1;
         }

@@ -20,6 +20,7 @@ public class ChangeSceneManager : MonoBehaviour
 
     public void ChangeToEntrance()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }
 
@@ -31,5 +32,10 @@ public class ChangeSceneManager : MonoBehaviour
     public void ChangeToMixed()
     {
         SceneManager.LoadScene(2);
+    }
+
+    public void QuitApplication()
+    {
+        Application.Quit();
     }
 }

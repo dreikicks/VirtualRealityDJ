@@ -5,10 +5,11 @@ using UnityEngine.Audio;
 using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class ButtonChangeColor : MonoBehaviour
+public class ButtonActiveCue : MonoBehaviour
 {
     public UnityEvent OnPress = null;
     public Material selectMaterial = null;
+    public Material ableMaterial = null;
 
     public bool playPausePressed;
 
@@ -16,7 +17,7 @@ public class ButtonChangeColor : MonoBehaviour
     private XRBaseInteractable interactable = null;
     private Material originalMaterial = null;
 
-    //public AudioSource audioSource;
+    public CueButton1 cueButton;
 
 
     private void Awake()
@@ -31,12 +32,13 @@ public class ButtonChangeColor : MonoBehaviour
 
     void Update() 
     {
-        // if (audioSource.isPlaying)
-        // {
-        //     meshRenderer.material = selectMaterial;
-        // } else {
-        //     meshRenderer.material = originalMaterial;
-        // }
+        if(cueButton.haveMark)
+        {
+            meshRenderer.material = ableMaterial;
+        } else if (cueButton.haveMark == false)
+        {
+            meshRenderer.material = originalMaterial;
+        }
     }
 
     private void OnDestroy()
@@ -54,7 +56,7 @@ public class ButtonChangeColor : MonoBehaviour
 
     private void SetOriginalMaterial(XRBaseInteractor interactor)
     {
-        meshRenderer.material = originalMaterial;
+        //meshRenderer.material = originalMaterial;
         
     }
 }
