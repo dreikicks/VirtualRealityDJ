@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -15,6 +16,8 @@ public class ButtonChangeColor : MonoBehaviour
     private XRBaseInteractable interactable = null;
     private Material originalMaterial = null;
 
+    public AudioSource audioSource;
+
 
     private void Awake()
     {
@@ -26,6 +29,16 @@ public class ButtonChangeColor : MonoBehaviour
         interactable.onHoverExited.AddListener(SetOriginalMaterial);
     }
 
+    void Update() 
+    {
+        if (audioSource.isPlaying)
+        {
+            meshRenderer.material = selectMaterial;
+        } else {
+            meshRenderer.material = originalMaterial;
+        }
+    }
+
     private void OnDestroy()
     {
         interactable.onHoverEntered.RemoveListener(SetSelectMaterial);
@@ -34,14 +47,14 @@ public class ButtonChangeColor : MonoBehaviour
 
     private void SetSelectMaterial(XRBaseInteractor interactor)
     {
-        meshRenderer.material = selectMaterial;
+        //meshRenderer.material = selectMaterial;
 
         OnPress.Invoke();
     }
 
     private void SetOriginalMaterial(XRBaseInteractor interactor)
     {
-        meshRenderer.material = originalMaterial;
+        //meshRenderer.material = originalMaterial;
         
     }
 }
