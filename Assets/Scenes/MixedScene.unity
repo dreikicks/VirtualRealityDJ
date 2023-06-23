@@ -276,7 +276,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &386682647
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -955,6 +955,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d31ff3b0eabc164182cadf29e6d7ccf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer: 0
 --- !u!1 &1086532227
 GameObject:
   m_ObjectHideFlags: 0
@@ -1878,7 +1879,7 @@ MonoBehaviour:
   colorMapEditorSaturation: 0
   serializedSurfaceGeometry: []
   textureOpacity_: 1
-  edgeRenderingEnabled_: 1
+  edgeRenderingEnabled_: 0
   edgeColor_: {r: 0.7688679, g: 0.9235625, b: 1, a: 1}
   colorMapType: 0
 --- !u!1 &1904445134
@@ -2191,7 +2192,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1904454288}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
   m_Name: 
@@ -20675,7 +20676,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 793694460}
         m_TargetAssemblyTypeName: ChangeSceneManager, Assembly-CSharp
-        m_MethodName: ChangeToEntrance
+        m_MethodName: StartEntrance
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

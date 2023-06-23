@@ -11097,7 +11097,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
   m_Name: 
@@ -24598,6 +24598,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d31ff3b0eabc164182cadf29e6d7ccf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer: 0
 --- !u!4 &1828350298
 Transform:
   m_ObjectHideFlags: 0
@@ -29265,7 +29266,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1828350297}
         m_TargetAssemblyTypeName: ChangeSceneManager, Assembly-CSharp
-        m_MethodName: ChangeToEntrance
+        m_MethodName: StartEntrance
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
