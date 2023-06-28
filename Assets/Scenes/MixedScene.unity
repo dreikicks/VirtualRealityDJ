@@ -956,6 +956,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 0
+  charging: 0
 --- !u!1 &1086532227
 GameObject:
   m_ObjectHideFlags: 0
@@ -4103,8 +4104,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.0702503
-  m_Center: {x: 0.022102786, y: 0, z: -0.0044035017}
+  m_Radius: 0.03
+  m_Center: {x: 0.015, y: -0.01, z: -0.0044035017}
 --- !u!4 &216930913841905909
 Transform:
   m_ObjectHideFlags: 0
@@ -4395,8 +4396,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.07325897
-  m_Center: {x: -0.020958804, y: 0, z: -0.0044201687}
+  m_Radius: 0.03
+  m_Center: {x: -0.020958804, y: -0.01, z: -0.0044201687}
 --- !u!4 &216930913864917229
 Transform:
   m_ObjectHideFlags: 0
@@ -4803,7 +4804,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e988983f96fe1dd48800bcdfc82f23e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_LineWidth: 0.01
+  m_LineWidth: 0.007
   m_OverrideInteractorLineLength: 1
   m_LineLength: 10
   m_WidthCurve:
@@ -4832,8 +4833,8 @@ MonoBehaviour:
     m_RotationOrder: 4
   m_ValidColorGradient:
     serializedVersion: 2
-    key0: {r: 1, g: 1, b: 1, a: 1}
-    key1: {r: 1, g: 1, b: 1, a: 1}
+    key0: {r: 0.627451, g: 0.94509804, b: 1, a: 1}
+    key1: {r: 0.627451, g: 0.94509804, b: 1, a: 1}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
@@ -5427,7 +5428,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e988983f96fe1dd48800bcdfc82f23e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_LineWidth: 0.01
+  m_LineWidth: 0.007
   m_OverrideInteractorLineLength: 1
   m_LineLength: 10
   m_WidthCurve:
@@ -5456,8 +5457,8 @@ MonoBehaviour:
     m_RotationOrder: 4
   m_ValidColorGradient:
     serializedVersion: 2
-    key0: {r: 1, g: 1, b: 1, a: 1}
-    key1: {r: 1, g: 1, b: 1, a: 1}
+    key0: {r: 0.627451, g: 0.94509804, b: 1, a: 1}
+    key1: {r: 0.627451, g: 0.94509804, b: 1, a: 1}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
@@ -7592,7 +7593,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scratchIntensity: 0.5
-  scratchDefIntensity: 0.1
+  scratchDefIntensity: 0.2
   audioSource: {fileID: 2431532397698720904}
   masterMix: {fileID: 24100000, guid: 9d8805af52e38b549b78182147846827, type: 2}
   scratchDefOn: 0
@@ -7602,8 +7603,8 @@ MonoBehaviour:
   resultPitch: 0
   pitchManager1: {fileID: 8837261116782502782}
   scratchActivated: 0
-  rotationSpeedThreshold: 1
-  timeStep: 0.2
+  rotationSpeedThreshold: 2
+  timeStep: 0.1
 --- !u!138 &2084542292808911472
 FixedJoint:
   m_ObjectHideFlags: 0
@@ -23398,8 +23399,8 @@ MonoBehaviour:
   scratchDefOn: 0
   pitchManager2: {fileID: 8837261116782502657}
   scratchActivated: 0
-  rotationSpeedThreshold: 1
-  timeStep: 0.2
+  rotationSpeedThreshold: 2
+  timeStep: 0.1
 --- !u!23 &8693133869385475952
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25258,7 +25259,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 2}
-  m_SizeDelta: {x: 0, y: 150}
+  m_SizeDelta: {x: 0, y: 250}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &8791806502026038126
 MonoBehaviour:
@@ -26040,7 +26041,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 2}
-  m_SizeDelta: {x: 0, y: 150}
+  m_SizeDelta: {x: 0, y: 250}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &8791806502391335942
 MonoBehaviour:
@@ -26412,8 +26413,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 7c043d83b63e0a44d89e1fe9c34f470c, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4

@@ -36,7 +36,7 @@ public class ScratchEffect1 : MonoBehaviour
         previousRotation = transform.localEulerAngles.y;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         currentRotation = transform.localEulerAngles.y;
         rotationDelta = currentRotation - previousRotation;

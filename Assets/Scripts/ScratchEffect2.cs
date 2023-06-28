@@ -37,10 +37,8 @@ public class ScratchEffect2 : MonoBehaviour
         previousRotation2 = transform.localEulerAngles.y;
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        
-
         if (!scratchDefOn) 
         {
             currentRotation = transform.localEulerAngles.y;
@@ -81,6 +79,8 @@ public class ScratchEffect2 : MonoBehaviour
             // Mover el punto de reproduccion del AudioSource
             if (magnitude > rotationSpeedThreshold)
             {
+                //float pitchShift = Mathf.Clamp(rotationDelta, -1f, 1f) * scratchIntensity;
+
                 float newTime = audioSource.time + (-direction) * timeStep;
                 audioSource.time = Mathf.Clamp(newTime, 0, audioSource.clip.length);
             }
