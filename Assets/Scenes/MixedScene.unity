@@ -17454,8 +17454,8 @@ MonoBehaviour:
   masterMix: {fileID: 24100000, guid: 9d8805af52e38b549b78182147846827, type: 2}
   xMin: 0.815
   xMax: 0.935
-  fMin: -35
-  fMax: 20
+  fMin: -40
+  fMax: 15
 --- !u!114 &4993863579757321441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17490,8 +17490,8 @@ MonoBehaviour:
   masterMix: {fileID: 24100000, guid: 9d8805af52e38b549b78182147846827, type: 2}
   xMin: 0.815
   xMax: 0.935
-  fMin: -35
-  fMax: 20
+  fMin: -40
+  fMax: 15
 --- !u!114 &4993863579757321447
 MonoBehaviour:
   m_ObjectHideFlags: 0
